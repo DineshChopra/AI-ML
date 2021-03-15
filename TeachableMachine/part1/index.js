@@ -1,6 +1,5 @@
-let net;
-
 async function app() {
+  let net;
   console.log('Loading mobilenet..');
 
   // Load the model.
