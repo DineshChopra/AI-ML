@@ -1,0 +1,24 @@
+<!-- https://codelabs.developers.google.com/codelabs/tensorflowjs-teachablemachine-codelab/index.html#0 -->
+<html>
+  <head>
+    <!-- Require the peer dependencies of pose-detection. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
+
+    <!-- You must explicitly require a TF.js backend if you're not using the TF.js union bundle. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
+    <!-- Alternatively you can use the WASM backend: <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm/dist/tf-backend-wasm.js"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
+
+  </head>
+  <body>
+    <div id="console"></div>
+    <!-- Add an image that we will use to test -->
+    <video autoplay playsinline muted id="webcam" width="224" height="224"></video> 
+
+    <!-- Load index.js after the content of the page -->
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!-- https://codelabs.developers.google.com/codelabs/tensorflowjs-teachablemachine-codelab/index.html#0 -->
+<html>
+  <head>
+    <!-- Load the latest version of TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+  </head>
+  <body>
+    <div id="console">
+    </div>
+    <img id="poseOutput" src="./images/MahatmaGandhi.jpeg" width="100px", height="150px"/>
+
+    <!-- Add an image that we will use to test -->
+    <video autoplay playsinline muted id="webcam" width="224" height="224"></video> 
+    <br/>
+    <br/>
+    <button id="class-a">Bura Mat Bolo</button>
+    <button id="class-b">Bura Mat Dekho</button>
+    <button id="class-c">Bura Mat Suno</button>
+    <button id="class-d">No Pose</button>
+    <!-- Load index.js after the content of the page -->
+    <script src="index.js"></script>
+  </body>
+</html>
