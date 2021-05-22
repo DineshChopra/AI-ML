@@ -1,22 +1,29 @@
-const webcamElement = document.getElementById('webcam');
+// Initialize the Image Classifier method with MobileNet. A callback needs to be passed.
+let classifier;
 
-async function app() {
-  const detectorConfig = {modelType: poseDetection.movenet.modelType.SINGLEPOSE_LIGHTNING};
-  const detector = await poseDetection.createDetector(poseDetection.SupportedModels.MoveNet, detectorConfig);
-  const webcam = await tf.data.webcam(webcamElement);
+// A variable to hold the image we want to classify
+let img;
 
-  while (true) {
-
-    const image = await webcam.capture();
-
-    const poses = await detector.estimatePoses(image);
-    console.log(poses[0].score);
-
-    // Dispose the tensor to release the memory.
-    image.dispose();
-
-    await tf.nextFrame();
-  }
+function preload() {
+  classifier = ml5.imageClassifier('MobileNet');
+  img = loadImage('images/bird.png');
 }
 
-app();
+function setup() {
+  createCanvas(400, 400);
+  classifier.classify(img, gotResult);
+  image(img, 0, 0);
+}
+
+// A function to run when we get any errors and the results
+function gotResult(error, results) {
+  // Display error in the console
+  if (error) {
+    console.error(error);
+  } else {
+    // The results are in an array ordered by confidence.
+    console.log(results);
+    createDiv('Label: ' + results[0].label);
+    createDiv('Confidence: ' + nf(results[0].confidence, 0, 2));
+  }
+}
